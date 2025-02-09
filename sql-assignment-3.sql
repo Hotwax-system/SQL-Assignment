@@ -1,1 +1,3 @@
-SELECT p.product_id,p.internal_name,p.product_type_id,it.external_id FROM product p join order_item it on p.product_id=it.product_id where it.external_id is null OR it.external_id ='';
+SELECT p.product_id,p.internal_name,p.product_type_id,gi.id_value as NetSuitId FROM 
+product p join good_identification gi on 
+p.product_id=gi.product_id where gi.id_value is null OR gi.id_value='';
