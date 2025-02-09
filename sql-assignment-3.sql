@@ -1,0 +1,1 @@
+SELECT p.product_id,p.internal_name,p.product_type_id,it.external_id FROM product p join order_item it on p.product_id=it.product_id where it.external_id is null OR it.external_id ='';
