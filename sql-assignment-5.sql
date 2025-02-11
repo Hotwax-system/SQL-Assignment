@@ -8,6 +8,7 @@ SELECT
     oh.ship_group_seq_id,
     orh.status_id, 
     oi.order_id, 
+    oi.quantity,
     orh.external_id,
     orh.product_store_id
 FROM order_item oi 
