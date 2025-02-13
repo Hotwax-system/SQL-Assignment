@@ -3,4 +3,5 @@ SELECT COUNT(ri.return_id) as Total_Return,
        COUNT(a.return_id) as Total_appeasement,
        SUM(a.amount) as appeasement_Total
 FROM return_item ri 
-JOIN return_adjustment a ON a.return_id=ri.return_id;
+JOIN return_adjustment a ON a.return_id=ri.return_id
+WHERE a.RETURN_ADJUSTMENT_TYPE_ID='APPEASEMENT';
