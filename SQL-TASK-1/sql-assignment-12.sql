@@ -1,8 +1,8 @@
-SELECT p.product_id,pf.minimum_stock as Threshold
-FROM product p 
-JOIN product_facility pf ON pf.product_id=p.product_id 
-WHERE pf.MINIMUM_STOCK is not null;
-
+select 
+	distinct p.product_id,
+  pf.minimum_stock as Threshold
+from product p 
+join product_facility pf on p.product_id=pf.product_id;
 -- SELECT p.product_id,pf.minimum_stock as Threshold
 -- FROM product p 
 -- JOIN product_facility pf ON pf.product_id=p.product_id 
