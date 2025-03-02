@@ -1,4 +1,4 @@
-SELECT distinct (ri.return_id),
+SELECT ri.return_id,
        ri.order_id,
        oh.product_store_id,
        (SELECT os.status_datetime FROM order_status os WHERE os.order_id=ri.order_id
