@@ -3,5 +3,8 @@ SELECT per.first_name,
 FROM return_item ri
 JOIN return_header rh ON ri.return_id=rh.return_id
 JOIN person per ON per.party_id=rh.FROM_PARTY_ID
-WHERE ri.order_id IN(select order_id FROM return_item GROUP BY order_id HAVING count(*)=1)
+WHERE (rh.return_date >= DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-01')
+AND rh.return_date < DATE_FORMAT(CURDATE(), '%Y-%m-01')) AND ri.order_id IN(select order_id FROM return_item GROUP BY order_id HAVING count(*)=1)
 order by rh.FROM_PARTY_ID;
+
+
