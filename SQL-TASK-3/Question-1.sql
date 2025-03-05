@@ -1,5 +1,6 @@
-SELECT oi.order_id,
-	   oi.order_item_seq_id,
+SELECT 
+       oi.order_id,
+       oi.order_item_seq_id,
        oi.product_id,
        oh.sales_channel_enum_id,
        p.product_type_id,
@@ -13,8 +14,3 @@ JOIN order_header oh ON oh.order_id=oi.order_id
 JOIN product p ON p.product_id=oi.product_id
 JOIN product_type pt ON p.product_type_id=pt.product_type_id
 WHERE pt.is_physical='Y';
-	
-       
-       
-       
-	   
