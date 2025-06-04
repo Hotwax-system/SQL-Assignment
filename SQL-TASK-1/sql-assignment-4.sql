@@ -1,7 +1,17 @@
-  SELECT
-   p.product_id,
-  gi.id_value as NetSuitId,
-  sp.shopify_product_id as shopify_id
-FROM product p left join good_identification gi on p.product_id=gi.product_id 
-join shopify_product sp on sp.product_id=p.product_id
-where gi.id_value is not null and gi.good_identification_type_id='ERP_ID';
+select 
+	distinct p.product_id as Hotwax_id,
+    gi_sub.id_value as NetsuitId,
+    gi_sub_prod.id_value as SHopifyId
+    from product p
+join (
+select 
+	 id_value,	
+	product_id
+    from good_identification gi where gi.GOOD_IDENTIFICATION_TYPE_ID='ERP_ID'
+) as gi_sub on gi_sub.product_id=p.product_id
+join (
+select 
+	 id_value,	
+	product_id
+    from good_identification gi where gi.GOOD_IDENTIFICATION_TYPE_ID='SHOPIFY_PROD_ID'
+) as gi_sub_prod on gi_sub_prod.product_id=p.product_id;
