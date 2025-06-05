@@ -4,7 +4,7 @@ select
       plr.role_type_id,
 	  pli.facility_id,
       CASE 
-		WHEN  plr.thru_date is null or plr.thru_date >current_Date()
+	WHEN  plr.thru_date is null or plr.thru_date >current_Date()
         THEN "Active"
         ELSE  "Inactive"
         END AS status
