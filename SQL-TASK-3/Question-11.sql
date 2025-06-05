@@ -8,4 +8,5 @@ SELECT
   it.send_date,
   it.status_id 
 FROM Inventory_Transfer it JOIN inventory_item ii ON ii.inventory_item_id=it.inventory_item_id
-JOIN order_item_ship_grp_inv_res oisgir ON oisgir.inventory_item_id=it.inventory_item_id;
+LEFT JOIN order_item_ship_grp_inv_res oisgir ON oisgir.inventory_item_id=it.inventory_item_id
+WHERE oisgir.quantity is null;
